@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { Project } from '../../../../types/project';
+	import type { Project } from '../../../types/project';
 	import ThemeToggle from '../ThemeToggle.svelte';
 	import Information from './Information.svelte';
 	import Workspace from './Workspace.svelte';

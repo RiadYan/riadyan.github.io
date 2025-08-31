@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { Project } from '../../../types/project';
+	import type { Project } from '../../types/project';
 	import {
 		Folder,
 		File,
@@ -28,7 +28,7 @@
 				<!-- svelte-ignore a11y_click_events_have_key_events -->
 				<!-- svelte-ignore a11y_no_static_element_interactions -->
 				<div
-					class="group relative cursor-pointer overflow-hidden rounded-xl border border-gray-700 bg-gray-800/60 p-5 transition-all hover:border-info-hover hover:bg-gray-800/80"
+					class="group relative cursor-pointer overflow-hidden rounded-xl border border-info/80 bg-info-hover/60 p-5 transition-all hover:border-info hover:bg-info-hover/80"
 					onclick={() => select(project)}
 				>
 					<!-- Hover Gradient -->

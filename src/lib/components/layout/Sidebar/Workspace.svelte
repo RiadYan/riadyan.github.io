@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
 	import { Folder, Globe, Cpu, BookOpen, Lock, Cog, ChevronRight } from '@lucide/svelte';
-	import type { Project } from '../../../../types/project';
+	import type { Project } from '../../../types/project';
 	import { page } from '$app/state';
 	let { projects, select } = $props<{
 		projects: Project[];

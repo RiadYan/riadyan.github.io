@@ -1,8 +1,9 @@
 <script lang="ts">
 	import { Grid2x2, List, Search } from '@lucide/svelte';
-	import type { Project } from '../../../types/project';
+	import type { Project } from '../../types/project';
 	import { onMount } from 'svelte';
 	import ThemeToggle from './ThemeToggle.svelte';
+	import { page } from '$app/state';
 
 	let { currentView, changeCurrentView, projects, select } = $props<{
 		currentView: 'grid' | 'list';
@@ -63,18 +64,20 @@
 	class="flex h-12 w-full items-center justify-between border-b border-info-hover bg-background/70 px-4 backdrop-blur-lg"
 >
 	<div class="flex items-center space-x-4">
-		<button
-			class={`p-1 ${currentView === 'grid' ? 'text-info/90' : 'text-text-muted'}`}
-			onclick={() => changeCurrentView('grid')}
-		>
-			<Grid2x2 size={18} />
-		</button>
-		<button
-			class={`p-1 ${currentView === 'list' ? 'text-info/90' : 'text-text-muted'}`}
-			onclick={() => changeCurrentView('list')}
-		>
-			<List size={18} />
-		</button>
+		{#if page.url.pathname === '/'}
+			<button
+				class={`p-1 ${currentView === 'grid' ? 'text-info/90' : 'text-text-muted'}`}
+				onclick={() => changeCurrentView('grid')}
+			>
+				<Grid2x2 size={18} />
+			</button>
+			<button
+				class={`p-1 ${currentView === 'list' ? 'text-info/90' : 'text-text-muted'}`}
+				onclick={() => changeCurrentView('list')}
+			>
+				<List size={18} />
+			</button>
+		{/if}
 	</div>
 
 	<div class="relative w-72">
