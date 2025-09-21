@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { changeCurrentView, loadProjectsWithNewData } from '$lib/data/project.svelte';
+	import { onMount } from 'svelte';
 	import type { Project } from '../../types/project';
 	import {
 		Folder,
@@ -11,7 +13,9 @@
 		Package,
 		BookOpen,
 		Lock,
-		Cog
+		Cog,
+		Grid2x2,
+		List
 	} from '@lucide/svelte';
 
 	let { projects, currentView, select } = $props<{
@@ -21,6 +25,20 @@
 	}>();
 </script>
 
+<div class="flex flex-row justify-end space-x-4 border-b-1 border-info-hover p-2">
+	<button
+		class={`p-1 ${currentView === 'grid' ? 'text-info' : 'text-text-muted'}`}
+		onclick={() => changeCurrentView('grid')}
+	>
+		<Grid2x2 size={18} />
+	</button>
+	<button
+		class={`p-1 ${currentView === 'list' ? 'text-info' : 'text-text-muted'}`}
+		onclick={() => changeCurrentView('list')}
+	>
+		<List size={18} />
+	</button>
+</div>
 {#if currentView === 'grid'}
 	<div class="flex-1 overflow-y-auto p-4 sm:p-6">
 		<div class="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
@@ -31,13 +49,11 @@
 					class="group relative cursor-pointer overflow-hidden rounded-xl border border-info/80 bg-info-hover/60 p-5 transition-all hover:border-info hover:bg-info-hover/80"
 					onclick={() => select(project)}
 				>
-					<!-- Hover Gradient -->
 					<div
 						class="absolute inset-0 bg-gradient-to-br from-info-hover to-end-gradient opacity-0 transition-opacity group-hover:opacity-25"
 					></div>
 
 					<div class="relative z-10 flex flex-col items-start space-y-2">
-						<!-- Icon -->
 						<div
 							class="flex h-12 w-12 items-center justify-center rounded-full bg-info-hover p-2 text-info/80"
 						>
@@ -56,12 +72,10 @@
 							{/if}
 						</div>
 
-						<!-- Name -->
 						<div class="line-clamp-1 text-sm font-semibold text-info/90 sm:text-base">
 							{project.name}
 						</div>
 
-						<!-- Type -->
 						<div class="text-xs text-text-muted uppercase sm:text-sm">{project.type}</div>
 					</div>
 				</div>

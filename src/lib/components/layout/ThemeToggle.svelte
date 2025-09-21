@@ -11,7 +11,7 @@
 </script>
 
 <button
-	on:click={toggle}
+	onclick={toggle}
 	class="rounded-lg border border-info/30 p-2 text-info transition-all hover:bg-info-hover"
 	aria-label="Toggle theme"
 >

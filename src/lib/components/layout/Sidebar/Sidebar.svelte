@@ -24,7 +24,7 @@
 			<div class="py-2">
 				<Workspace {projects} {select} />
 			</div>
-			<div class="py-2">
+			<div class="border-b-1 border-info-hover py-2">
 				<Information />
 			</div>
 		</div>

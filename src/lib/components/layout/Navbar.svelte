@@ -61,25 +61,8 @@
 </script>
 
 <div
-	class="flex h-12 w-full items-center justify-between border-b border-info-hover bg-background/70 px-4 backdrop-blur-lg"
+	class="flex h-12 w-full items-center justify-center border-b border-info-hover bg-background/70 px-4 backdrop-blur-lg md:justify-end"
 >
-	<div class="flex items-center space-x-4">
-		{#if page.url.pathname === '/'}
-			<button
-				class={`p-1 ${currentView === 'grid' ? 'text-info/90' : 'text-text-muted'}`}
-				onclick={() => changeCurrentView('grid')}
-			>
-				<Grid2x2 size={18} />
-			</button>
-			<button
-				class={`p-1 ${currentView === 'list' ? 'text-info/90' : 'text-text-muted'}`}
-				onclick={() => changeCurrentView('list')}
-			>
-				<List size={18} />
-			</button>
-		{/if}
-	</div>
-
 	<div class="relative w-72">
 		<div class="relative">
 			<Search size={16} class="absolute top-1/2 left-3 -translate-y-1/2 text-text-muted" />

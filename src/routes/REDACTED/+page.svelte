@@ -5,7 +5,7 @@
 
 	let displayText = '';
 	let finalText = 'INFORMATION REDACTED';
-	let scrambling = true; // state to track if scrambling is active
+	let scrambling = true;
 
 	const chars = '!<>-_\\/[]{}—=+*^?#________';
 	function randomChar() {
