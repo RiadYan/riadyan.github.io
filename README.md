@@ -1,1 +1,1 @@
-# Explorer my Portfolio !
+# Explore my Portfolio !
