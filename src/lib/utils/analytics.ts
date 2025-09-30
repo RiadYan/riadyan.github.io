@@ -1,5 +1,5 @@
-export function trackEvent(action: string, params: Record<string, any> = {}) {
-	if (typeof window !== 'undefined' && (window as any).gtag) {
-		(window as any).gtag('event', action, params);
+export function trackEvent(eventName: string, data: Record<string, any> = {}) {
+	if (typeof window !== 'undefined' && typeof (window as any).umami !== 'undefined') {
+		(window as any).umami.track(eventName, data);
 	}
 }
